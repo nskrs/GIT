@@ -9,5 +9,6 @@ var titles = document.querySelectorAll('.title');
 
 console.log(titles);
 titles[0].textContent= 'ADD ITEM';
+
 titles[0].style.fontWeight='bold';
 titles[0].style.backgroundColor='green'
