@@ -39,7 +39,7 @@ function addItem(e){
   itemList.appendChild(li);
 }
 
-// Remove item
+// Remove items
 function removeItem(e){
   if(e.target.classList.contains('delete')){
     if(confirm('Are You Sure?')){
