@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="saveToLocalStorage(event)">
+        <label>Choose_Expenseamount</label>
+        <input type ="number" name="Choose_Expenseamount"id="Choose_Expenseamount" required/>
+        <label>Choose_Description</label>
+        <input type ="text" name="Choose_Description" id="Choose_Description" required/>
+        <label>Choose a category</label>
+        <!-- <input type ="text" name="Choose a category" id =Expences_Selected" /> -->
+        <select name="Expences_Selected" id ="Expences_Selected">
+            <option selected >Movie</option>
+            <option>Food</option>
+            <option>Electricity</option>
+            <option>Fuel</option>
+         
+        </select>
+        <button>Add expence</button>
+        <!-- <input type="button" value="Delete"> -->
+    </form>
+    <ul id ='listOfexpence'></ul>
+    <Script>
+    function saveToLocalStorage(event)
+   {
+        event.preventDefault(); 
+        const Choose_Expenseamount=event.target.Choose_Expenseamount.value;
+        const Choose_Description=event.target.Choose_Description.value;
+        const Choose_a_category=event.target.Expences_Selected.value;
+        localStorage.setItem('Choose_Expenseamount', Choose_Expenseamount);
+        localStorage.setItem('Choose_Description',Choose_Description);
+        localStorage.setItem('Choose_a_category', Choose_a_category)
+        const obj ={
+            Choose_Expenseamount,
+            Choose_Description,
+            Choose_a_category
+        }
+        localStorage.setItem(obj. Choose_Expenseamount,JSON.stringify(obj));
+        showUserOnScreen(obj)
+    }
+        function showUserOnScreen(obj){
+            const parentElem= document.getElementById('listOfexpence')
+            const childElem = document.createElement('li')
+          childElem.textContent = obj.Choose_Expenseamount+ '  -   ' + obj. Choose_Description + '   -   ' +  obj. Choose_a_category
+        
+          const deleteButton =document.createElement('input')
+          deleteButton.type = 'button'
+          deleteButton.value= 'Delete Expence'
+          deleteButton.onclick=()=>{
+            localStorage.removeItem(obj.Choose_Description)
+            parentElem.removeChild(childElem)
+          }
+
+          const editButton =document.createElement('input')
+          editButton.type = 'button'
+          editButton.value= 'Edit Expence'
+          editButton.onclick=()=>{
+            localStorage.removeItem(obj.Choose_Description)
+            parentElem.removeChild(childElem)
+            document.getElementById('Choose_ExpenseamountInputTag').value=obj.Choose_Expenseamount
+            document.getElementById('Choose_DescriptionTag').value=obj.Choose_Description
+            document.getElementById('Expences_SelectedTag').value=obj.Choose_a_category
+          }
+          childElem.appendChild(deleteButton)
+          childElem.appendChild(editButton)
+          parentElem.appendChild(childElem)
+        }
+
+    </Script>
+ </body>
+</html>
