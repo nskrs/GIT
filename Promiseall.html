@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function createPost() {
+  return new Promise((resolve) => {
+    // implementation of createPost function
+    const post = {title: 'Post Five', body: 'This is Post Five'};
+    resolve(post);
+  });
+}
+
+function seenSomeoneMessage() {
+  return new Promise((resolve) => {
+    // implementation of seenSomeoneMessage function
+    const message = {text: 'Hello, how are you?'};
+    resolve(message);
+  });
+}
+
+function updateProfilePhoto() {
+  return new Promise((resolve) => {
+    // implementation of updateProfilePhoto function
+    const photo = {url: 'https://example.com/profile.png'};
+    resolve(photo);
+  });
+}
+
+const user = {
+  username: 'nk',
+  lastActivityTime: '5th of March'
+};
+
+function updateLastUserActivityTime() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      user.lastActivityTime = new Date().getTime();
+      resolve(user.lastActivityTime);
+    }, 1000);
+  });
+}
+
+function userUpdateAPost() {
+  Promise.all([createPost(), updateLastUserActivityTime()])
+    .then(([createPostResult, updateLastActivityTimeResult]) => {
+      console.log(updateLastActivityTimeResult);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+userUpdateAPost();
+    </script>
+    
+</body>
+</html>
