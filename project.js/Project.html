@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1An
+    m3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Sellers Admin Page</title>
+</head>
+<body>
+    <header>
+        <h1>Ecommerce SetUp</h1>
+      </header>
+      <section class="container">
+        <form onsubmit="AddtoScreen(event)" id="my-form">
+          <h1>Add Details</h1>
+          <div class="msg"></div>
+          <div>
+            <label for="amount">Selling Price:</label>
+            <input type="number" id="amount">
+          </div>
+          <div>
+            <label for="Productname">Product Name:</label>
+            <input type="text" id="productname">
+          </div>
+          <input class="btn" type="submit" value="Add Product">
+          <div ><h1>Products</h1></div>
+          
+        </form>
+        <ul id="users"></ul>
+        
+        </section>
+        <div id="totalprice">Total Worth of Products: </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.6/axios.min.js"></script>
+<script src="main.js"></script> 
+</body>
+</html>
